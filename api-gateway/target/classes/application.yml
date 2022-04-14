@@ -1,0 +1,30 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: api-gateway
+#  zipkin:
+#    base-url: http://localhost:9411
+  cloud:
+    gateway:
+      routes:
+        - id: customer
+          uri: lb://CUSTOMER #load balancer for customer|| without ms name
+          predicates:
+            - Path=/api/v1/customers/** #if statement to match path
+            - Method=GET,POST,DELETE,PUT #if statement to match VERB
+            - Header=Authorization, Bearer (.*) #for security before accessing ms
+#          filters:
+#            - RewritPath=/customer/(?<segment>.*), /$\{segment}
+      discovery: #with ms name
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
