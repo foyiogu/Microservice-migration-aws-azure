@@ -4,12 +4,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import reactor.core.publisher.Mono;
 
 @Slf4j
 @Configuration
 public class PrePostFilter {
 
+    @Order(2) //ordre of pre filter is inversely proportional to post filter ordering.
+    // This only applies to filters in same class
     @Bean
     public GlobalFilter firstGlobalFilter(){
         return (exchange, chain) -> {
@@ -22,6 +25,7 @@ public class PrePostFilter {
         };
     }
 
+    @Order(1)
     @Bean
     public GlobalFilter secondGlobalFilter(){
         return (exchange, chain) -> {

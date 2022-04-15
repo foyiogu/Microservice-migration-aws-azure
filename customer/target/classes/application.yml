@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:0}
+  port: ${PORT:0} #port passed in arguments otherwise 0
 #  port: 8080
 
 spring:
@@ -17,6 +17,8 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+  config:
+    import: optional:configserver:http://localhost:8084
 eureka:
   client:
     service-url:
@@ -26,3 +28,8 @@ eureka:
   #  for instance to register with eureka, if port is changed to 0 and new instances of ms needs to be spun up
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+fraud:
+  check:
+    url: abc
+  delete:
+    url: def

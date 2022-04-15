@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/foyiogu/ms-mig-config-server.git
+          username: foyiogu
+          password: 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
+          clone-on-start: true
+          default-label: main
+server:
+  port: 8084
