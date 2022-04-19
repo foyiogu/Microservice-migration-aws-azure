@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+#        bootstrap: true
+    bus:
+      enabled: true
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    info:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include:
+          - busrefresh
+          - busenv

@@ -1,6 +1,7 @@
 package com.francisMS.customer;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-@AllArgsConstructor
+@Slf4j
 public record CustomerService(CustomerRepository customerRepository,
                               RestTemplate restTemplate,
                               CustomerPropertyConfig config) {
@@ -20,6 +21,8 @@ public record CustomerService(CustomerRepository customerRepository,
 //    private static String fraudDeleteUrl;
 
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
+
+        log.error("---------- {}", config.getCheckUrl());
         Customer customer = Customer.builder()
                 .firstName(customerRegistrationRequest.firstName())
                 .lastName(customerRegistrationRequest.lastName())
@@ -34,6 +37,8 @@ public record CustomerService(CustomerRepository customerRepository,
                         FraudCheckResponse.class,
                         customer.getId());
 
+
+
         assert fraudCheckResponse != null;
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster");
@@ -43,6 +48,7 @@ public record CustomerService(CustomerRepository customerRepository,
     public void deleteCustomer(Long customerId) {
         Customer customer = customerRepository.findById(customerId).get();
 
+        log.error("---------- {}", config.getDeleteUrl());
         Map<String, Long> params = new HashMap<>();
         params.put("customerId", customerId);
 //        restTemplate.delete(Objects.requireNonNull(environment.getProperty("fraud.delete.url")),params);

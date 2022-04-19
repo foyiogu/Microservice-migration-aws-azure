@@ -1,6 +1,7 @@
 package com.francisMS.customer;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j

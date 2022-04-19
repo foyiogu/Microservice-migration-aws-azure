@@ -6,8 +6,8 @@ spring:
     name: api-gateway
 #  zipkin:
 #    base-url: http://localhost:9411
-#  config:
-#    import: optional:configserver:http://localhost:8084
+  config:
+    import: optional:configserver:http://localhost:8084
   cloud:
     gateway:
       routes:
@@ -16,13 +16,25 @@ spring:
           predicates:
             - Path=/api/v1/customers/** #if statement to match path
             - Method=GET,POST,DELETE,PUT #if statement to match VERB
-            - Header=Authorization, Bearer (.*) #for security before accessing ms
+#            - Header=Authorization, Bearer (.*) #for security before accessing ms
+#            - Path=/api/v1/customers/** #if statement to match path
 #          filters:
-#            - RewritPath=/customer/(?<segment>.*), /$\{segment}
+#            - RewritePath=/customer/(?<segment>.*), /$\{segment}
       discovery: #with ms name
         locator:
           enabled: true
           lower-case-service-id: true
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      env:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
@@ -30,3 +42,21 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+
+management:
+  endpoint:
+    info:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+#          - bus-refresh
+#          - bus-env
+#bus:
+#  enabled: true
+#  refresh:
+#    enabled: true
+#  env:
+#    enabled: true

@@ -19,18 +19,18 @@ public class PostFilter implements GlobalFilter {
 
             log.error("Global Post Filter enabled.. ");
 
-            String requestpath = exchange.getRequest().getPath().toString();
-            log.info("post request path => {}", requestpath);
-
-            HttpHeaders httpHeaders = exchange.getRequest().getHeaders();
-
-
-            Set<String> headers = httpHeaders.keySet();
-
-            headers.forEach((header) ->{
-                String headerValue = httpHeaders.getFirst(header);
-                log.info("post {} -> {}", header, headerValue);
-            });
+//            String requestpath = exchange.getRequest().getPath().toString();
+//            log.info("post request path => {}", requestpath);
+//
+//            HttpHeaders httpHeaders = exchange.getRequest().getHeaders();
+//
+//
+//            Set<String> headers = httpHeaders.keySet();
+//
+//            headers.forEach((header) ->{
+//                String headerValue = httpHeaders.getFirst(header);
+//                log.info("post {} -> {}", header, headerValue);
+//            });
         }));
     }
 }

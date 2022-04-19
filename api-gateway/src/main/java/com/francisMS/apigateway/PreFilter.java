@@ -18,18 +18,18 @@ public class PreFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.error("Pre Filter started...");
 
-        String requestpath = exchange.getRequest().getPath().toString();
-        log.info("pre request path => {}", requestpath);
-
-        HttpHeaders httpHeaders = exchange.getRequest().getHeaders();
-
-
-        Set<String> headers = httpHeaders.keySet();
-
-        headers.forEach((header) ->{
-            String headerValue = httpHeaders.getFirst(header);
-            log.info("pre {} -> {}", header, headerValue);
-        });
+//        String requestpath = exchange.getRequest().getPath().toString();
+//        log.info("pre request path => {}", requestpath);
+//
+//        HttpHeaders httpHeaders = exchange.getRequest().getHeaders();
+//
+//
+//        Set<String> headers = httpHeaders.keySet();
+//
+//        headers.forEach((header) ->{
+//            String headerValue = httpHeaders.getFirst(header);
+//            log.info("pre {} -> {}", header, headerValue);
+//        });
 
         return chain.filter(exchange);
     }
