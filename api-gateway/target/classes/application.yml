@@ -43,6 +43,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
+#actuator security
 management:
   endpoint:
     info:
@@ -52,8 +53,8 @@ management:
     web:
       exposure:
         include: "*"
-#          - bus-refresh
-#          - bus-env
+#          - busrefresh
+#          - busenv
 #bus:
 #  enabled: true
 #  refresh:

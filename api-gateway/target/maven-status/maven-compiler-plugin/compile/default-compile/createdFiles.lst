@@ -1,0 +1,6 @@
+com/francisMS/apigateway/AuthorizationHeaderFilter.class
+com/francisMS/apigateway/ApiGatewayApplication.class
+com/francisMS/apigateway/AuthorizationHeaderFilter$Config.class
+com/francisMS/apigateway/PostFilter.class
+com/francisMS/apigateway/PreFilter.class
+com/francisMS/apigateway/PrePostFilter.class

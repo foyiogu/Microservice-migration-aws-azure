@@ -1,0 +1,10 @@
+com/francisMS/customer/CustomerRepository.class
+com/francisMS/customer/CustomerController.class
+com/francisMS/customer/Customer.class
+com/francisMS/customer/FraudCheckResponse.class
+com/francisMS/customer/CustomerApplication.class
+com/francisMS/customer/CustomerConfig.class
+com/francisMS/customer/CustomerPropertyConfig.class
+com/francisMS/customer/Customer$CustomerBuilder.class
+com/francisMS/customer/CustomerService.class
+com/francisMS/customer/CustomerRegistrationRequest.class

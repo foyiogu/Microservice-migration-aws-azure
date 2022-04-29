@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8084
+      name: config-server
 
 management:
   security:

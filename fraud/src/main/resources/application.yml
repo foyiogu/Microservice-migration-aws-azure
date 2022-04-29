@@ -51,8 +51,8 @@ management:
     web:
       exposure:
         include:
-          - bus-refresh
-          - bus-env
+          - busrefresh
+          - busenv
 #bus:
 #  enabled: true
 #  refresh:

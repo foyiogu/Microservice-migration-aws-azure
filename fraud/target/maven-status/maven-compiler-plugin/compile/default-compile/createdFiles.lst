@@ -1,0 +1,7 @@
+com/francisMS/fraud/FraudCheckHistory$FraudCheckHistoryBuilder.class
+com/francisMS/fraud/FraudApplication.class
+com/francisMS/fraud/FraudCheckResponse.class
+com/francisMS/fraud/FraudController.class
+com/francisMS/fraud/FraudCheckHistoryRepository.class
+com/francisMS/fraud/FraudCheckHistory.class
+com/francisMS/fraud/FraudCheckService.class
