@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/foyiogu/ms-mig-config-server.git
           username: foyiogu
-          password: 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
+          password: gh
           default-label: main
           skip-ssl-validation: true
           refresh-rate: 0
